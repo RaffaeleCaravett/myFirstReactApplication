@@ -1,16 +1,14 @@
 import './App.css';
 import Navbar from './navbar';
+import Home from './home'
 
 function App() {
-const title= "Now we became serious. "
 
   return (
     <div className="App">
 <Navbar />
       <div className="Content">
-        <h1>
-{title}
-</h1>
+<Home />
       </div>
     </div>
   );
