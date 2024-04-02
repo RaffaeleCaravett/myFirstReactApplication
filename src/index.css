@@ -43,7 +43,16 @@ margin-left: 1%;
 border-radius: 0.5rem;
 }
 }
+}
 
-}  
+
+
   }
-  
+
+.hide{
+  display: none;
+}
+.div{
+  padding: 1%;
+  background-color: red;
+}
