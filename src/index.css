@@ -56,7 +56,8 @@ border-radius: 0.5rem;
   padding: 1%;
   background-color: red;
 }
-
+.blogs{
+  text-align: center;
 .blog-preview{
   text-align: center;
   padding:2%;
@@ -65,4 +66,6 @@ border-radius: 0.5rem;
   border: 1px solid gray;
   box-shadow: 3px 3px 3px black;
   border-radius: 1rem;
+  margin-top: 2%;
+}
 }
