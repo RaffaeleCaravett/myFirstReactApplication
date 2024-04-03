@@ -7,10 +7,10 @@ const [age,setAge] = useState(29)
 
 const[blog,setBlogs] = useState(
     [
-    {title:'ahaishfisdj', body:'fgsauoifhasdo',author:'iasufhdilsus'},
-    {title:'ahaishfisdj', body:'fgsauoifhasdo',author:'iasufhdilsus'},
-    {title:'ahaishfisdj', body:'fgsauoifhasdo',author:'iasufhdilsus'},
-    {title:'ahaishfisdj', body:'fgsauoifhasdo',author:'iasufhdilsus'}
+    {title:'ahaishfisdj', body:'fgsauoifhasdo',author:'iasufhdilsus',id:1},
+    {title:'ahaishfisdj', body:'fgsauoifhasdo',author:'iasufhdilsus',id:1},
+    {title:'ahaishfisdj', body:'fgsauoifhasdo',author:'iasufhdilsus',id:1},
+    {title:'ahaishfisdj', body:'fgsauoifhasdo',author:'iasufhdilsus',id:1}
     ]
     )
 
@@ -41,28 +41,7 @@ const changeName = () =>{
     setAge("29, but you feel 19")
     console.log(name)
 }
-let showBlogsBoolean = false
 
-const showBlogs = () =>{
-     let div = document.getElementsByClassName('blogs')[0]
-     let button = document.getElementsByClassName("blogsButton")[0]
-
-if(!showBlogsBoolean){
-       
-div.innerHTML=''
-    for(let b of blog){
-        div.innerHTML+=`<div>Title : ${b.title} , author : ${b.author} , body : ${b.body} </div>`
-    }
-    showBlogsBoolean=!showBlogsBoolean
-
-button.textContent="Hide blogs"
-}else{
-    div.innerHTML=''
-    button.textContent="Show blogs"
-    showBlogsBoolean=!showBlogsBoolean
-
-}
-}
 return (
     <div className="Home">
         <h1 onClick={handleClick}>Home</h1>
@@ -72,8 +51,15 @@ return (
             Ciao {name}, you are {age} 
         </div>
         <div>
-<button onClick={showBlogs} class="blogsButton">Show blogs</button>
-<div className="blogs"></div>
+<div className="blogs">
+    {blog.map((b)=>(
+<div className="blog-preview" key={b.id}>
+    <h1>{b.title}</h1>
+    <p>{b.body}</p><span>{b.author}</span>   
+</div>
+    )
+    )}
+</div>
 </div>
     </div>
 );
