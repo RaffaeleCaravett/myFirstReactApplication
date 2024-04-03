@@ -59,4 +59,10 @@ border-radius: 0.5rem;
 
 .blog-preview{
   text-align: center;
+  padding:2%;
+  width: 50%;
+  margin: auto;
+  border: 1px solid gray;
+  box-shadow: 3px 3px 3px black;
+  border-radius: 1rem;
 }
