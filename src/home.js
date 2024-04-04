@@ -14,6 +14,7 @@ const[blog,setBlogs] = useState(
     {title:'ahaishfisdj', body:'fgsauoifhasdo',author:'Me',id:4}
     ]
     )
+    const [cancellati,setCancellati]=useState([])
 
 const handleClick = (e) => {
     console.log('hi')
@@ -37,16 +38,23 @@ div.classList.add('hide')
 }
 
 const changeName = () =>{
-    console.log(name)
     setName('Raffo')
     setAge("29, but you feel 19")
-    console.log(name)
 }
-
 const handleDelete = (id) => {
-const newBlog= blog.filter((bl)=>bl.id!==id)
+    let newCancellati = cancellati;
+blog.forEach(b=>{
+    if(b.id===id){
+    newCancellati.push(b)
+    }
+})
+setCancellati(newCancellati)
+const newBlog= blog.filter((bl)=>
+bl.id!==id)
 setBlogs(newBlog)
 }
+
+
 
 return (
     <div className="Home">
@@ -57,8 +65,8 @@ return (
             Ciao {name}, you are {age} 
         </div>
         <div>
-<BlogList blog={blog} title="My first website's blogs" handleDelete={handleDelete}/>
-<BlogList blog={blog.filter((b)=>b.author==='Mario')} title="Mario's blogs" handleDelete={handleDelete}/>
+<BlogList blog={blog} title="My first website's blogs" handleDelete={handleDelete} cancellati={cancellati}/>
+<BlogList blog={blog.filter((b)=>b.author==='Mario')} title="Mario's blogs" handleDelete={handleDelete} cancellati={cancellati}/>
 </div>
     </div>
 );
