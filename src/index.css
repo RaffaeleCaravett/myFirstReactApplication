@@ -58,7 +58,13 @@ border-radius: 0.5rem;
 }
 .blogs{
   text-align: center;
-.blog-preview{
+  display: flex;
+  flex-direction: row;
+.available,.deleted{
+width: 50%;
+}
+.blog-preview,.cancellati-preview{
+  overflow: auto;
   text-align: center;
   padding:2%;
   width: 50%;
@@ -67,5 +73,19 @@ border-radius: 0.5rem;
   box-shadow: 3px 3px 3px black;
   border-radius: 1rem;
   margin-top: 2%;
+}
+.delete{
+  margin-right: -50%;
+  padding:2%;
+  background-color: rgb(122, 27, 27);
+  border-radius: 0.5rem;
+  border: 1px solid gray
+}
+.restore{
+  margin-right: -50%;
+  padding:2%;
+  background-color: rgb(20, 209, 105);
+  border-radius: 0.5rem;
+  border: 1px solid gray
 }
 }

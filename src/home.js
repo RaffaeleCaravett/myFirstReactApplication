@@ -56,9 +56,19 @@ setBlogs(newBlog)
 
 useEffect(()=>{
     console.log('use effect ran')
-    console.log(blog)
-    console.log(cancellati)
 })
+const handleRestore = (id) => {
+    let newBlog = blog;
+    cancellati.forEach(blog=>{
+        if(blog.id===id){
+newBlog.push(blog)
+        }
+    })
+    setBlogs(newBlog);
+
+    let newCancellati=cancellati.filter((c)=> c.id!==id)
+    setCancellati(newCancellati)
+}
 
 return (
     <div className="Home">
@@ -69,8 +79,8 @@ return (
             Ciao {name}, you are {age} 
         </div>
         <div>
-<BlogList blog={blog} title="My first website's blogs" handleDelete={handleDelete} cancellati={cancellati}/>
-<BlogList blog={blog.filter((b)=>b.author==='Mario')} title="Mario's blogs" handleDelete={handleDelete} cancellati={cancellati}/>
+<BlogList blog={blog} title="My first website's blogs" handleDelete={handleDelete} cancellati={cancellati}
+handleRestore={handleRestore}/>
 </div>
     </div>
 );
