@@ -43,6 +43,11 @@ const changeName = () =>{
     console.log(name)
 }
 
+const handleDelete = (id) => {
+const newBlog= blog.filter((bl)=>bl.id!==id)
+setBlogs(newBlog)
+}
+
 return (
     <div className="Home">
         <h1 onClick={handleClick}>Home</h1>
@@ -52,8 +57,8 @@ return (
             Ciao {name}, you are {age} 
         </div>
         <div>
-<BlogList blog={blog} title="My first website's blogs"/>
-<BlogList blog={blog.filter((b)=>b.author==='Mario')} title="Mario's blogs"/>
+<BlogList blog={blog} title="My first website's blogs" handleDelete={handleDelete}/>
+<BlogList blog={blog.filter((b)=>b.author==='Mario')} title="Mario's blogs" handleDelete={handleDelete}/>
 </div>
     </div>
 );
