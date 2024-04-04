@@ -8,10 +8,10 @@ const [age,setAge] = useState(29)
 
 const[blog,setBlogs] = useState(
     [
-    {title:'ahaishfisdj', body:'fgsauoifhasdo',author:'iasufhdilsus',id:1},
-    {title:'ahaishfisdj', body:'fgsauoifhasdo',author:'iasufhdilsus',id:2},
-    {title:'ahaishfisdj', body:'fgsauoifhasdo',author:'iasufhdilsus',id:3},
-    {title:'ahaishfisdj', body:'fgsauoifhasdo',author:'iasufhdilsus',id:4}
+    {title:'ahaishfisdj', body:'fgsauoifhasdo',author:'Mario',id:1},
+    {title:'ahaishfisdj', body:'fgsauoifhasdo',author:'Mario',id:2},
+    {title:'ahaishfisdj', body:'fgsauoifhasdo',author:'Raffaele',id:3},
+    {title:'ahaishfisdj', body:'fgsauoifhasdo',author:'Me',id:4}
     ]
     )
 
@@ -52,7 +52,8 @@ return (
             Ciao {name}, you are {age} 
         </div>
         <div>
-<BlogList blog={blog} title="My first websites' blogs"/>
+<BlogList blog={blog} title="My first website's blogs"/>
+<BlogList blog={blog.filter((b)=>b.author==='Mario')} title="Mario's blogs"/>
 </div>
     </div>
 );
