@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import BlogList from "./blogList"
 
 const Home = () =>{
@@ -54,7 +54,11 @@ bl.id!==id)
 setBlogs(newBlog)
 }
 
-
+useEffect(()=>{
+    console.log('use effect ran')
+    console.log(blog)
+    console.log(cancellati)
+})
 
 return (
     <div className="Home">
