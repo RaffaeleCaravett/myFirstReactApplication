@@ -7,12 +7,7 @@ const [name, setName] = useState('Raffaele')
 const [age,setAge] = useState(29)
 
 const[blog,setBlogs] = useState(
-    [
-    {title:'ahaishfisdj', body:'fgsauoifhasdo',author:'Mario',id:1},
-    {title:'ahaishfisdj', body:'fgsauoifhasdo',author:'Mario',id:2},
-    {title:'ahaishfisdj', body:'fgsauoifhasdo',author:'Raffaele',id:3},
-    {title:'ahaishfisdj', body:'fgsauoifhasdo',author:'Me',id:4}
-    ]
+    []
     )
     const [cancellati,setCancellati]=useState([])
 
@@ -56,7 +51,14 @@ setBlogs(newBlog)
 
 useEffect(()=>{
     console.log('use effect ran')
-},[name])
+    fetch('  http://localhost:8000/blog')
+    .then(res=>{
+        return res.json();
+    })
+    .then(data=>{
+        setBlogs(data)
+    })
+},[])
 const handleRestore = (id) => {
     let newBlog = blog;
     cancellati.forEach(blog=>{
@@ -79,8 +81,8 @@ return (
             Ciao {name}, you are {age} 
         </div>
         <div>
-<BlogList blog={blog} title="My first website's blogs" handleDelete={handleDelete} cancellati={cancellati}
-handleRestore={handleRestore}/>
+{blog &&<BlogList blog={blog} title="My first website's blogs" handleDelete={handleDelete} cancellati={cancellati}
+handleRestore={handleRestore}/>}
 </div>
     </div>
 );
