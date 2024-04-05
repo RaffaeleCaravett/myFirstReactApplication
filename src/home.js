@@ -51,8 +51,11 @@ setBlogs(newBlog)
 
 useEffect(()=>{
     console.log('use effect ran')
-    fetch('  http://localhost:8000/blog')
+    fetch('  http://localhost:8000/bloga')
     .then(res=>{
+        if(!res.ok){
+        throw Error('could not fetch the data for that resource')
+        }
         return res.json();
     })
     .then(data=>{
@@ -60,6 +63,9 @@ useEffect(()=>{
         setBlogs(data)
         setIsPending(false)
         },1000)
+    })
+    .catch(err=>{
+        console.log(err.message)
     })
 },[])
 const handleRestore = (id) => {
