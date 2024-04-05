@@ -73,19 +73,14 @@ width: 50%;
   box-shadow: 3px 3px 3px black;
   border-radius: 1rem;
   margin-top: 2%;
+  transition: 1s;
+  &:hover{
+    scale: 1.05;
+    transition: 1s;
+  }
 }
-.delete{
-  margin-right: -50%;
-  padding:2%;
-  background-color: rgb(122, 27, 27);
-  border-radius: 0.5rem;
-  border: 1px solid gray
-}
-.restore{
-  margin-right: -50%;
-  padding:2%;
-  background-color: rgb(20, 209, 105);
-  border-radius: 0.5rem;
-  border: 1px solid gray
+.loading{
+  margin: auto;
+  text-align: center;
 }
 }

@@ -56,7 +56,10 @@ useEffect(()=>{
         return res.json();
     })
     .then(data=>{
+        setTimeout(()=>{
         setBlogs(data)
+        setIsPending(false)
+        },1000)
     })
 },[])
 const handleRestore = (id) => {
@@ -72,6 +75,8 @@ newBlog.push(blog)
     setCancellati(newCancellati)
 }
 
+const [isPending,setIsPending] = useState(true)
+
 return (
     <div className="Home">
         <h1 onClick={handleClick}>Home</h1>
@@ -81,6 +86,7 @@ return (
             Ciao {name}, you are {age} 
         </div>
         <div>
+            {isPending && <div className="loading">Loading ...</div>}
 {blog &&<BlogList blog={blog} title="My first website's blogs" handleDelete={handleDelete} cancellati={cancellati}
 handleRestore={handleRestore}/>}
 </div>
