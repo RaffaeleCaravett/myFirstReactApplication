@@ -1,19 +1,13 @@
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
 import BlogList from "./blogList"
+import useFetch from "./useFetch"
 
 const Home = () =>{
 
 const [name, setName] = useState('Raffaele')
 const [age,setAge] = useState(29)
 
-const[blog,setBlogs] = useState(
-    []
-    )
-    const [cancellati,setCancellati]=useState([])
 
-const handleClick = (e) => {
-    console.log('hi')
-}
 let show =true
 
 const handleClickAgain = (name,e) => {
@@ -36,68 +30,28 @@ const changeName = () =>{
     setName('Raffo')
     setAge("29, but you feel 19")
 }
-const handleDelete = (id) => {
-    let newCancellati = cancellati;
-blog.forEach(b=>{
-    if(b.id===id){
-    newCancellati.push(b)
-    }
-})
-setCancellati(newCancellati)
-const newBlog= blog.filter((bl)=>
-bl.id!==id)
-setBlogs(newBlog)
-}
+
+
+
+
+
+const {data,isPending,error} = useFetch('http://localhost:8000/blog')
 
 useEffect(()=>{
-    console.log('use effect ran')
-    fetch('  http://localhost:8000/bloga')
-    .then(res=>{
-        if(!res.ok){
-        throw Error('could not fetch the data for that resource')
-        }
-        return res.json();
-    })
-    .then(data=>{
-        setTimeout(()=>{
-        setBlogs(data)
-        setIsPending(false)
-        },1000)
-    })
-    .catch(err=>{
-        setError(err.message)
-        console.log(err.message)
-    })
-},[])
-const handleRestore = (id) => {
-    let newBlog = blog;
-    cancellati.forEach(blog=>{
-        if(blog.id===id){
-newBlog.push(blog)
-        }
-    })
-    setBlogs(newBlog);
-
-    let newCancellati=cancellati.filter((c)=> c.id!==id)
-    setCancellati(newCancellati)
-}
-
-const [isPending,setIsPending] = useState(true)
-const [error,setError] = useState(null)
-
+    console.log(data)
+})
 return (
     <div className="Home">
-        <h1 onClick={handleClick}>Home</h1>
+        <h1>Home</h1>
         <button onClick={(e)=> {handleClickAgain(name,e)}}>Say hi to me</button>
         <button onClick={changeName}>Change my name</button>
         <div className="div">
             Ciao {name}, you are {age} 
         </div>
         <div>
-            {isPending && !error && <div className="loading">Loading ...</div>}
-            {isPending && error && <div className="loading">{error}</div>}
-{blog &&<BlogList blog={blog} title="My first website's blogs" handleDelete={handleDelete} cancellati={cancellati}
-handleRestore={handleRestore}/>}
+            {isPending && <div className="loading">Loading ...</div>}
+            {error && <div className="loading">{error}</div>}
+{data && <BlogList blog={data} title="My first website's blogs" />}
 </div>
     </div>
 );
