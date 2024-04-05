@@ -56,7 +56,7 @@ setBlogs(newBlog)
 
 useEffect(()=>{
     console.log('use effect ran')
-})
+},[name])
 const handleRestore = (id) => {
     let newBlog = blog;
     cancellati.forEach(blog=>{
