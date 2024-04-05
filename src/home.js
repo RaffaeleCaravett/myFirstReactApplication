@@ -65,6 +65,7 @@ useEffect(()=>{
         },1000)
     })
     .catch(err=>{
+        setError(err.message)
         console.log(err.message)
     })
 },[])
@@ -82,6 +83,7 @@ newBlog.push(blog)
 }
 
 const [isPending,setIsPending] = useState(true)
+const [error,setError] = useState(null)
 
 return (
     <div className="Home">
@@ -92,7 +94,8 @@ return (
             Ciao {name}, you are {age} 
         </div>
         <div>
-            {isPending && <div className="loading">Loading ...</div>}
+            {isPending && !error && <div className="loading">Loading ...</div>}
+            {isPending && error && <div className="loading">{error}</div>}
 {blog &&<BlogList blog={blog} title="My first website's blogs" handleDelete={handleDelete} cancellati={cancellati}
 handleRestore={handleRestore}/>}
 </div>
