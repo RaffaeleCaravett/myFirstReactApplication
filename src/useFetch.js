@@ -24,7 +24,6 @@ const useFetch = (enpoint) => {
         .catch(err=>{
             setError(err.message)
             setIsPending(false)
-            console.log(err.message)
         })
     },[enpoint])
 
