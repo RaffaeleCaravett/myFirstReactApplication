@@ -11,7 +11,7 @@ const [age,setAge] = useState(29)
 let show =true
 
 const handleClickAgain = (name,e) => {
-    console.log('hi' + ' ' + name,e)
+    console.log('hi ' + name,e)
    let div = document.getElementsByClassName('div')[0]
 show=!show
 if(show){
@@ -38,7 +38,6 @@ const changeName = () =>{
 const {data,isPending,error} = useFetch('http://localhost:8000/blog')
 
 useEffect(()=>{
-    console.log(data)
 })
 return (
     <div className="Home">

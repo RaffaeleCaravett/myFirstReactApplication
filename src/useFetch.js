@@ -6,8 +6,11 @@ const useFetch = (enpoint) => {
         const [isPending,setIsPending] = useState(true)
         const [error,setError] = useState(null)
     useEffect(()=>{
-        console.log('use effect ran')
-        fetch(enpoint)
+
+        const abortCont = new AbortController();
+
+        setTimeout(()=>{
+        fetch(enpoint,{signal:abortCont.signal})
         .then(res=>{
             if(!res.ok){
             throw Error('could not fetch the data for that resource')
@@ -22,9 +25,15 @@ const useFetch = (enpoint) => {
         },1000)
         })
         .catch(err=>{
+            if(err.name === 'AbortError') {
+                console.log('Aborted')
+            }else{
             setError(err.message)
             setIsPending(false)
+            }
         })
+    },1000);
+    return () => abortCont.abort();
     },[enpoint])
 
 
