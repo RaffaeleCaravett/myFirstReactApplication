@@ -50,7 +50,7 @@ return (
         <div>
             {isPending && <div className="loading">Loading ...</div>}
             {error && <div className="loading">{error}</div>}
-{data && <BlogList blog={data} title="My first website's blogs" />}
+{data && <BlogList blog={data} title="My first website's blogs"/>}
 </div>
     </div>
 );
