@@ -1,24 +1,38 @@
-const Create = () =>{
+import { useState } from 'react'
 
-    
+const Create = () =>{
+const [title,setTitle] = useState('');
+const [body,setBody] = useState('');    
+const [author,setAuthor] = useState('');
+
+
+const sendRequest = (e) => {
+    e.preventDefault();
+}
 
     return (
         <div className="formDiv">
             <h1>Add a blog</h1>
-<form>
+<form onSubmit={sendRequest}>
     <label>Inserisci il titolo del blog :</label>
     <input 
     type="text"
-    required/>
+    required
+    onChange={(e)=>{setTitle(e.target.value)}}
+    />
     <label>Inserisci il testo del blog :</label>
     <textarea
     type="text"
-    required>
+    required
+    onChange={(e)=>{setBody(e.target.value)}}
+    >
     </textarea>
     <label>Inserisci l'autore :</label>
     <input 
     type="text"
-    required/>
+    required
+    onChange={(e)=>{setAuthor(e.target.value)}}
+    />
     <button>Crea blog</button>
 </form>
         </div>
