@@ -13,7 +13,7 @@ return(
         <h2>{title}</h2>
     {blog.map((b)=>(
 <div className="blog-preview" key={b.id}>
-    <Link to={`/blogs/${b.id}`}>
+    <Link to={`/blogs/${b.id}`} className="links">
     <h1>{b.title}</h1>
     </Link>
     <p>{b.body}</p><span>{b.author}</span>   

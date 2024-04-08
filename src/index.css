@@ -24,29 +24,6 @@ code {
     font-optical-sizing: auto;
     font-style: normal;
   }
-  .links{
-    width: 50%;
-    text-align: end;
-    a{
-    text-decoration: none;
-    color: black;
-    line-height: 4.5;
-padding-left: 5%;
-&:hover{
-  color: red;
-}  
-&:nth-child(2){
-  background-color: white;
-width: 75%;
-padding: 1%;
-margin-left: 1%;
-border-radius: 0.5rem;
-}
-}
-}
-
-
-
   }
 
 .hide{
@@ -58,11 +35,6 @@ border-radius: 0.5rem;
 }
 .blogs{
   text-align: center;
-  display: flex;
-  flex-direction: row;
-.available,.deleted{
-width: 50%;
-}
 .blog-preview,.cancellati-preview{
   overflow: auto;
   text-align: center;
@@ -78,6 +50,9 @@ width: 50%;
     scale: 1.05;
     transition: 1s;
   }
+  h1{
+    text-align: center;
+   }
 }
 .loading{
   margin: auto;
@@ -85,15 +60,25 @@ width: 50%;
 }
 
 }
-.blogs{
-  display: flex;
-  flex-direction: column;
-  text-align: center;
- h1{
-  text-align: center;
- }
-}
-Link{
+.links{
+  width: 50%;
+  text-align: end;
   text-decoration: none;
-  color:black
+  color: black;
+  a{
+  text-decoration: none;
+  color: black;
+  line-height: 4.5;
+padding-left: 5%;
+&:hover{
+color: red;
+}  
+&:nth-child(2){
+background-color: white;
+width: 75%;
+padding: 1%;
+margin-left: 1%;
+border-radius: 0.5rem;
+}
+}
 }
