@@ -86,6 +86,8 @@ width: 50%;
 
 }
 .blogs{
+  display: flex;
+  flex-direction: column;
   text-align: center;
  h1{
   text-align: center;
