@@ -11,13 +11,15 @@ const Create = () =>{
     type="text"
     required/>
     <label>Inserisci il testo del blog :</label>
-    <input 
+    <textarea
     type="text"
-    required/>
+    required>
+    </textarea>
     <label>Inserisci l'autore :</label>
     <input 
     type="text"
     required/>
+    <button>Crea blog</button>
 </form>
         </div>
     )

@@ -82,3 +82,45 @@ border-radius: 0.5rem;
 }
 }
 }
+.formDiv{
+  text-align: center;
+  form{
+  display: flex;
+  flex-direction: column;
+  width:50%;
+  text-align: center;
+  margin: auto;
+  padding-top: 3%;
+  label{
+    padding:1%
+  }  
+  input{
+    border-radius: 0.2rem;
+    padding: 1%;
+    width: 75%;
+    margin:auto
+  }
+  textarea{
+width: 75%;
+margin: auto;
+padding: 1%;
+padding-top:5% ;
+padding-bottom:5% ;
+border-radius: 0.3rem;
+border: 2px solid black;
+}
+}
+button{
+  width: fit-content;
+  margin: auto;
+  margin-top: 2%;
+  padding: 1%;
+  background: transparent;
+  transition: 1s;
+  &:hover{
+    background-color: rgb(255, 208, 0);
+    cursor: pointer;
+    transition: 1s;
+  }
+}
+}
