@@ -6,6 +6,7 @@ const blog = props.blog
 const title= props.title
 
 
+
 return(
 
 <div className="blogs">
@@ -13,7 +14,6 @@ return(
         <h2>{title}</h2>
     {blog.map((b)=>(
 <div className="blog-preview" key={b.id}>
-    <div className="button-delete">Delete</div>
     <Link to={`/blogs/${b.id}`} className="links">
     <h1>{b.title}</h1>
     </Link>

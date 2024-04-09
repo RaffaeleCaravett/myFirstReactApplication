@@ -125,7 +125,18 @@ button{
 }
 }
 .button-delete{
-  padding: 1%;
+  
+  display: flex;
+  justify-content: end;
+  button{
+    padding: 1%;
   background-color: red;
   color: white;
+  border: 1px solid wheat;
+  border-radius: 0.3rem;
+    width: fit-content;
+    &:hover{
+      cursor: pointer;
+    }
+  }
 }
