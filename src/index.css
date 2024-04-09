@@ -140,3 +140,17 @@ button{
     }
   }
 }
+.not-found{
+  text-align: center;
+  .home{
+    color: white;
+    background-color: red;
+    width: fit-content;
+    margin: auto;
+    padding: 0.5%;
+    border-radius: 0.2rem;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}
