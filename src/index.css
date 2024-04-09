@@ -124,3 +124,8 @@ button{
   }
 }
 }
+.button-delete{
+  padding: 1%;
+  background-color: red;
+  color: white;
+}
