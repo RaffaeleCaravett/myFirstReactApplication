@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 const Create = () =>{
 
@@ -8,7 +9,7 @@ const [author,setAuthor] = useState('');
 const [error,setError] = useState(false);
 const [isPending,setIsPending] = useState(false);
 const [saved,setSaved] = useState(false);
-
+const history = useHistory();
 
 const sendRequest = (e) => {
     e.preventDefault();
@@ -21,13 +22,13 @@ fetch('http://localhost:8000/blog',{
     headers: {"Content-Type":"application/json" },
     body: JSON.stringify(blog)
 }).then(res=>{
-       console.log(res)
     if(res){ 
         setIsPending(true)
         setTimeout(()=>{
         setError(false)
         setIsPending(false)
         setSaved(true)
+        history.push('/')
         },1000)
        
     }else if(!res.ok){
