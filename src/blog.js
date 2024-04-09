@@ -8,7 +8,7 @@ const { id } = useParams()
 const {data,isPending,error} = useFetch(`http://localhost:8000/blog/${id}`)
 const history= useHistory();
 
-const deleteBlog = (id)=>{
+const deleteBlog = ()=>{
     fetch('http://localhost:8000/blog/'+id,
     {
         method:'DELETE',
